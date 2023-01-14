@@ -26,7 +26,7 @@ DB_NAME=yourdatabasename
 ```
 4. Run the server
 ```
-npm start
+node app.js
 ```
 
 ### Client
