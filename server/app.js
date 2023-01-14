@@ -2,6 +2,13 @@
 // const app = express();
 
 // app.get('/', (req, res) => res.send('Hello World!'));
+// const express = require('express');
+// const bodyParser = require('body-parser');
+// const cors = require('cors');
+// const mysql = require('mysql');
+// const app = express();
+// const port = 3001;
+
 
 require('dotenv').config()
 
@@ -24,7 +31,7 @@ app.route('/books/:userId')
 app.route('/createbook/:userId/:bookTitle')
   .post(function(req, res, next) {
     connection.query(
-      "INSERT into books(", req.params.userId,
+      "INSERT into books(bookTitle, userId) VALUES (?, ?, ?)", req.params.bookTitle,req.params.userId, 
       function(error, results, fields) {
         if (error) throw error;
         res.json(results);
